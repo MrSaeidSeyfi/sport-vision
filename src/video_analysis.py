@@ -6,7 +6,7 @@ import numpy as np
 
 def process_frame(frame, kits_clf, left_team_label, grass_hsv, width):
     # Run inference
-    result = model.track(frame, conf=0.5, persist=True, verbose=False, tracker='botsort.yaml')[0]
+    result = model.track(frame, conf=0.5, persist=True, verbose=False, tracker="src/botsort_custom.yaml")[0]
     annotated_frame = frame.copy()
     players_imgs, players_boxes = get_players_boxes(result)
     kits_colors = get_kits_colors(players_imgs, grass_hsv, annotated_frame)
